@@ -26,11 +26,11 @@ CREATE TABLE training (
 
 CREATE TABLE event (
   id bigserial primary key,
+  created_at timestamp default current_timestamp,
   duration int,
   reward varchar(80),
   trigger text,
   dog_response text,
   dog_id integer references dog (id),
   human_id integer references human (id),
-
 );

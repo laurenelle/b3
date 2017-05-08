@@ -17,7 +17,7 @@ export default class b3 extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to B3!
+          B3!
         </Text>
       </View>
     );

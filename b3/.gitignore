@@ -37,6 +37,7 @@ npm-debug.log
 yarn-error.log
 db/npm-debug.log
 db/yarn-error.log
+db/node_modules/
 
 # BUCK
 buck-out/

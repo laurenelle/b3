@@ -23,18 +23,20 @@ function createUser(req, res, next) {
   }
 
 function getUser(req, res, next) {
-  console.log('email= '+req.body.email);
+  console.log('req.params.userid= '+ req.params.userid);
   const pool = require('./db');
-
-  pool.query('SELECT * from human', function(err, res) {
+  pool.query('SELECT * from human where id=$1', [req.params.userid], function(err, res) {
     if(err) {
       return console.error('error running query', err);
     }
-    console.log('name:', res.rows[0].name);
+    console.log('email:', res.rows[0].email);
+    console.log('first name:', res.rows[0].first_name);
+    console.log('last name:', res.rows[0].last_name);
+    console.log('time:', res.rows[0].daily_time);
   });
-    res.send('retrieved user ' + req.body.name);
+    res.send('retrieved user ' + res.rows[0].email);
   }
 
 server.post('/signup', createUser);
-// server.get('/user/:name', getUser);
+server.get('/user/:userid', getUser);
 ;

@@ -1,6 +1,8 @@
 CREATE TABLE human (
   id bigserial primary key,
-  name varchar(80),
+  first_name varchar(80),
+  last_name varchar(80),
+  email varchar(80),
   daily_time int
 );
 
@@ -32,5 +34,5 @@ CREATE TABLE event (
   trigger text,
   dog_response text,
   dog_id integer references dog (id),
-  human_id integer references human (id),
+  human_id integer references human (id)
 );

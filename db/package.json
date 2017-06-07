@@ -1,0 +1,10 @@
+{
+  "name": "b3db",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "restify": "^4.3.0",
+    "pg": "^6.2.3"
+  },
+  "devDependencies": {}
+}

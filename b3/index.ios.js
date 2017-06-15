@@ -9,7 +9,18 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  View,
+  TextInput,
+  Button
 } from 'react-native';
+
+import {
+  Provider
+} from 'react-redux';
+
+import App from './components/app';
+
+import store from './store/store';
 
 class Dog extends Component {
   render() {
@@ -19,18 +30,14 @@ class Dog extends Component {
   }
 }
 
+// const store = require('./store/store.js').default
 
 export default class b3 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          B3!
-        </Text>
-        <Dog name='Bane Buttercup' />
-        <Dog name='Bodhi Bear' />
-        <Dog name='Baloo Boo' />
-      </View>
+      <Provider store={store}>
+        <App/>
+      </Provider>
     );
   }
 }

@@ -39,6 +39,8 @@ db/npm-debug.log
 db/yarn-error.log
 db/node_modules/
 
+*.lock
+
 # BUCK
 buck-out/
 \.buckd/

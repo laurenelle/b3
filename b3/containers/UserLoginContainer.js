@@ -14,7 +14,6 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
   return {
     onPressButton: (userId) => {
-      console.log("inside on press button");
       dispatch(fetchUserData(userId));
     }
   }

@@ -36,7 +36,7 @@ export default class LoginForm extends Component {
           style={styles.input}
           ref={(input) => this.passwordInput = input}
           />
-          <TouchableOpacity
+        <TouchableOpacity
           onPress={this.handleButtonPress.bind(this)}
           style={styles.loginButtonContainer}>
             <Text style={styles.loginButtonText}>LOGIN</Text>

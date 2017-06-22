@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
+import { NavigationActions } from 'react-navigation';
+
 import {
   TextInput,
   Button,
@@ -14,7 +18,11 @@ import {
 
 import LoginForm from './LoginForm';
 
-export default class UserLogin extends Component {
+import {
+  fetchUserData
+} from '../actions/users';
+
+class UserLogin extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,6 +32,10 @@ export default class UserLogin extends Component {
 
 handleButtonPress(){
   this.props.onPressButton(this.state.userId);
+}
+
+handleButtonAddDog(){
+  this.props.onPressAddDog();
 }
 
   render() {
@@ -58,12 +70,16 @@ handleButtonPress(){
             style={styles.input}
             ref={(input) => this.passwordInput = input}
             />
-            <TouchableOpacity
+          <TouchableOpacity
             onPress={this.handleButtonPress.bind(this)}
             style={styles.loginButtonContainer}>
               <Text style={styles.loginButtonText}>LOGIN</Text>
             </TouchableOpacity>
-        </View>
+          <Button
+            onPress={this.handleButtonAddDog.bind(this)}
+              title="Add a Dog"
+            />
+          </View>
       </KeyboardAvoidingView>
     );
   }
@@ -110,3 +126,23 @@ const styles = StyleSheet.create({
      fontWeight: '500'
    }
  });
+
+ export const mapStateToProps = (state) => {
+   return state
+ };
+
+ export const mapDispatchToProps = (dispatch) => {
+   return {
+     onPressButton: (userId) => {
+       dispatch(fetchUserData(userId));
+     },
+     onPressAddDog: () => {
+       dispatch(NavigationActions.navigate({ routeName: 'AddDog' }));
+     }
+   }
+ };
+
+ export default connect(
+   mapStateToProps,
+   mapDispatchToProps
+ )(UserLogin);

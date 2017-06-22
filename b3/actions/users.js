@@ -14,9 +14,7 @@ export const receiveUser = (data) => ({
 })
 
 export function fetchUserData(userId) {
-  console.log("inside fetchUserData");
   return dispatch => {
-    console.log("inside dispatch fetchUserData");
     dispatch(requestUser(userId))
     return fetch(`http://localhost:8080/user/${userId}`)
       .then(response => response.json())

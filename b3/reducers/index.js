@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import users from './users'
+import dogs from './dogs'
 
 import { NavigationActions } from 'react-navigation';
 import { AppNavigator } from '../navigators/AppNavigator';
@@ -43,7 +44,8 @@ function auth(state = initialAuthState, action) {
 
 const reducers = combineReducers({
   nav,
-  users
+  users,
+  dogs
 })
 
 export default reducers

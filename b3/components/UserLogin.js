@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
-
-import { NavigationActions } from 'react-navigation';
-
 import {
   TextInput,
   Button,
@@ -16,13 +12,8 @@ import {
   StatusBar
 } from 'react-native';
 
-import LoginForm from './LoginForm';
 
-import {
-  fetchUserData
-} from '../actions/users';
-
-class UserLogin extends Component {
+export default class UserLogin extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -30,13 +21,13 @@ class UserLogin extends Component {
     }
   }
 
-handleButtonPress(){
-  this.props.onPressButton(this.state.userId);
-}
+  handleButtonPress(){
+    this.props.onPressButton(this.state.userId);
+  }
 
-handleButtonAddDog(){
-  this.props.onPressAddDog();
-}
+  handleButtonAddDog(){
+    this.props.onPressAddDog();
+  }
 
   render() {
     return (
@@ -73,18 +64,17 @@ handleButtonAddDog(){
           <TouchableOpacity
             onPress={this.handleButtonPress.bind(this)}
             style={styles.loginButtonContainer}>
-              <Text style={styles.loginButtonText}>LOGIN</Text>
-            </TouchableOpacity>
+            <Text style={styles.loginButtonText}>LOGIN</Text>
+          </TouchableOpacity>
           <Button
             onPress={this.handleButtonAddDog.bind(this)}
-              title="Add a Dog"
-            />
+            title="Add a Dog"
+          />
           </View>
       </KeyboardAvoidingView>
     );
   }
 }
-
 
 const styles = StyleSheet.create({
    container: {
@@ -126,23 +116,3 @@ const styles = StyleSheet.create({
      fontWeight: '500'
    }
  });
-
- export const mapStateToProps = (state) => {
-   return state
- };
-
- export const mapDispatchToProps = (dispatch) => {
-   return {
-     onPressButton: (userId) => {
-       dispatch(fetchUserData(userId));
-     },
-     onPressAddDog: () => {
-       dispatch(NavigationActions.navigate({ routeName: 'AddDog' }));
-     }
-   }
- };
-
- export default connect(
-   mapStateToProps,
-   mapDispatchToProps
- )(UserLogin);

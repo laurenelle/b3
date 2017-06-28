@@ -6,11 +6,13 @@ import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 import UserLoginContainer from '../containers/UserLoginContainer';
 import AddDogContainer from '../containers/AddDogContainer';
 import StartTrainingContainer from '../containers/StartTrainingContainer';
+import SepanxContainer from '../containers/SepanxContainer';
 
 export const AppNavigator = StackNavigator({
   UserLogin: { screen: UserLoginContainer },
   AddDog: { screen: AddDogContainer },
-  StartTraining: { screen: StartTrainingContainer }
+  StartTraining: { screen: StartTrainingContainer },
+  SeparationAnxiety: { screen: SepanxContainer}
 });
 
 const AppWithNavigationState = ({ dispatch, nav }) => (

@@ -12,6 +12,7 @@ import {
 export default class TrainingOptions extends Component {
 
   handleButtonSepanx(){
+    this.props.onPressSepanx();
   }
 
   render() {
